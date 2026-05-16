@@ -8,7 +8,7 @@ import ChatWindow from './components/ChatWindow';
 export default function App() {
   // ── Navigation state ──────────────────────────────────
   const [currentPage, setCurrentPage] = useState<Page>('home');
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
 
   // ── Conversation state (persists across Home↔Chat navigation) ──
   const [messages, setMessages] = useState<Message[]>([]);
@@ -21,7 +21,7 @@ export default function App() {
   return (
     <div
       className="flex h-screen w-screen overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #1e1e30 0%, #292940 50%, #1a1a2e 100%)' }}
+      style={{ background: 'linear-gradient(135deg, #1e1e30 0%, #111117ff 100%, #1a1a2e 100%)' }}
     >
       {/* ── Sidebar ───────────────────────────────────── */}
       <Sidebar

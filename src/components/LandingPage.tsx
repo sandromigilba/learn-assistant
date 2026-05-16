@@ -78,7 +78,7 @@ export default function LandingPage({ onNavigate }: LandingPageProps) {
             >
               <GraduationCap size={12} className="text-white" />
             </div>
-            <span className="text-xs font-semibold text-brand-primary">Powered by Google Gemini</span>
+            <span className="text-xs font-semibold text-brand-primary">Powered by Groq</span>
           </div>
 
           <h1
@@ -195,7 +195,7 @@ export default function LandingPage({ onNavigate }: LandingPageProps) {
 
         {/* ── Footer ───────────────────────────────────────── */}
         <p className="text-center text-xs text-brand-dark mt-10">
-          Built with React · Vite · Tailwind CSS · Google Gemini API
+          Built with React · Vite · Tailwind CSS
         </p>
       </div>
     </div>

@@ -9,8 +9,8 @@ interface SidebarProps {
 }
 
 const NAV_ITEMS: Array<{ id: Page; label: string; icon: React.ReactNode }> = [
-  { id: 'home', label: 'Home',  icon: <Home size={20} /> },
-  { id: 'chat', label: 'Chat',  icon: <MessageSquare size={20} /> },
+  { id: 'home', label: 'Home', icon: <Home size={20} /> },
+  { id: 'chat', label: 'Chat', icon: <MessageSquare size={20} /> },
 ];
 
 export default function Sidebar({
@@ -34,7 +34,7 @@ export default function Sidebar({
         </div>
         {!collapsed && (
           <div className="animate-fade-in overflow-hidden">
-            <p className="text-sm font-bold text-brand-primary leading-none">LearnAI</p>
+            <p className="text-sm font-bold text-brand-primary leading-none">Learn Asisstant</p>
             <p className="text-[10px] text-brand-medium mt-0.5 leading-none">AI Study Tutor</p>
           </div>
         )}

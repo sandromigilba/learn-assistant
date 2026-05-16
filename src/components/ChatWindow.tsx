@@ -15,13 +15,13 @@ interface ChatWindowProps {
 
 const MODE_PLACEHOLDERS: Record<Mode, string> = {
   explain: 'Ask me to explain anything — e.g. "How does photosynthesis work?"',
-  quiz:    'Give me a topic to quiz you on — e.g. "Quiz me on World War II"',
+  quiz: 'Give me a topic to quiz you on — e.g. "Quiz me on World War II"',
   summary: 'Paste text or a topic to summarize — e.g. "Summarize the French Revolution"',
 };
 
 const MODE_WELCOME: Record<Mode, string> = {
   explain: '👋 Welcome! I\'m in **Explain Mode**. Give me any topic and I\'ll break it down step-by-step with examples and analogies.',
-  quiz:    '🎯 Welcome! I\'m in **Quiz Mode**. Tell me a subject and I\'ll fire questions at you to test your knowledge!',
+  quiz: '🎯 Welcome! I\'m in **Quiz Mode**. Tell me a subject and I\'ll fire questions at you to test your knowledge!',
   summary: '📋 Welcome! I\'m in **Summary Mode**. Paste any text or topic and I\'ll distill it into clean, scannable bullet points.',
 };
 
@@ -35,12 +35,12 @@ export default function ChatWindow({
   mode,
   onModeChange,
 }: ChatWindowProps) {
-  const [inputText, setInputText]     = useState('');
-  const [isTyping, setIsTyping]       = useState(false);
-  const [error, setError]             = useState<string | null>(null);
+  const [inputText, setInputText] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const messagesEndRef  = useRef<HTMLDivElement>(null);
-  const textareaRef     = useRef<HTMLTextAreaElement>(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   // ── Auto-scroll to bottom ────────────────────────────
   useEffect(() => {
@@ -121,7 +121,7 @@ export default function ChatWindow({
           </div>
           <div>
             <p className="text-sm font-semibold text-brand-text">AI Study Tutor</p>
-            <p className="text-[10px] text-brand-dark">LearnAI · Powered by Gemini</p>
+            <p className="text-[10px] text-brand-dark">Learn Assistant · Powered by Groq</p>
           </div>
         </div>
 

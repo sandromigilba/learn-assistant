@@ -7,24 +7,28 @@
 
 /* ─── CSS Variables ─────────────────────────────────────────── */
 :root {
-  --color-text:    #e6e6e6;
+  --color-text: #e6e6e6;
   --color-primary: #a5a3ff;
-  --color-medium:  #7c7abf;
-  --color-dark:    #535280;
-  --color-bg:      #292940;
-  --glass-bg:      rgba(41, 41, 64, 0.55);
-  --glass-border:  rgba(165, 163, 255, 0.15);
-  --glass-blur:    16px;
+  --color-medium: #7c7abf;
+  --color-dark: #535280;
+  --color-bg: #292940;
+  --glass-bg: rgba(41, 41, 64, 0.55);
+  --glass-border: rgba(165, 163, 255, 0.15);
+  --glass-blur: 16px;
 }
 
 /* ─── Base Reset ─────────────────────────────────────────────── */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   width: 100%;
   overflow: hidden;
@@ -101,44 +105,91 @@ body {
 }
 
 /* ─── Custom Scrollbar ───────────────────────────────────────── */
-::-webkit-scrollbar { width: 5px; height: 5px; }
-::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 ::-webkit-scrollbar-thumb {
   background: rgba(165, 163, 255, 0.3);
   border-radius: 99px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(165, 163, 255, 0.55);
 }
 
 /* ─── Prose Styles for react-markdown ───────────────────────── */
-.ai-prose { @apply text-brand-text leading-relaxed; }
-.ai-prose p  { @apply mb-3; }
-.ai-prose ul { @apply list-disc list-inside mb-3 space-y-1; }
-.ai-prose ol { @apply list-decimal list-inside mb-3 space-y-1; }
-.ai-prose strong { @apply text-brand-primary font-semibold; }
-.ai-prose em { @apply text-brand-medium italic; }
+.ai-prose {
+  @apply text-brand-text leading-relaxed;
+}
+
+.ai-prose p {
+  @apply mb-3;
+}
+
+.ai-prose ul {
+  @apply list-disc list-inside mb-3 space-y-1;
+}
+
+.ai-prose ol {
+  @apply list-decimal list-inside mb-3 space-y-1;
+}
+
+.ai-prose strong {
+  @apply text-brand-primary font-semibold;
+}
+
+.ai-prose em {
+  @apply text-brand-medium italic;
+}
+
 .ai-prose code {
   @apply px-1.5 py-0.5 rounded-md text-sm font-mono;
   background: rgba(165, 163, 255, 0.15);
   color: #c4c2ff;
 }
+
 .ai-prose pre {
   @apply p-4 rounded-xl text-sm font-mono mb-3 overflow-x-auto;
   background: rgba(41, 41, 64, 0.8);
   border: 1px solid rgba(165, 163, 255, 0.15);
 }
-.ai-prose pre code { background: none; padding: 0; }
-.ai-prose h1, .ai-prose h2, .ai-prose h3 {
+
+.ai-prose pre code {
+  background: none;
+  padding: 0;
+}
+
+.ai-prose h1,
+.ai-prose h2,
+.ai-prose h3 {
   @apply font-bold text-brand-primary mb-2 mt-4;
 }
-.ai-prose h1 { @apply text-xl; }
-.ai-prose h2 { @apply text-lg; }
-.ai-prose h3 { @apply text-base; }
+
+.ai-prose h1 {
+  @apply text-xl;
+}
+
+.ai-prose h2 {
+  @apply text-lg;
+}
+
+.ai-prose h3 {
+  @apply text-base;
+}
+
 .ai-prose blockquote {
   @apply border-l-2 border-brand-primary pl-4 italic text-brand-medium mb-3;
 }
-.ai-prose a { @apply text-brand-primary underline hover:text-brand-medium; }
+
+.ai-prose a {
+  @apply text-brand-primary underline hover:text-brand-medium;
+}
 
 /* ─── Orb Animations ─────────────────────────────────────────── */
 .orb {
