@@ -27,6 +27,7 @@ export default function Sidebar({
       {/* ── Brand Logo ─────────────────────────── */}
       <div className={`flex items-center gap-3 px-3 py-5 ${collapsed ? 'justify-center' : ''}`}>
         <div
+          onClick={onToggleCollapse}
           className="flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center animate-glow-pulse"
           style={{ background: 'linear-gradient(135deg, #a5a3ff, #535280)' }}
         >
