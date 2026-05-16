@@ -1,0 +1,150 @@
+/* ─── Google Fonts ─────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Variables ─────────────────────────────────────────── */
+:root {
+  --color-text:    #e6e6e6;
+  --color-primary: #a5a3ff;
+  --color-medium:  #7c7abf;
+  --color-dark:    #535280;
+  --color-bg:      #292940;
+  --glass-bg:      rgba(41, 41, 64, 0.55);
+  --glass-border:  rgba(165, 163, 255, 0.15);
+  --glass-blur:    16px;
+}
+
+/* ─── Base Reset ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Glassmorphism Utilities ────────────────────────────────── */
+@layer components {
+  .glass {
+    background: rgba(83, 82, 128, 0.18);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+  }
+
+  .glass-dark {
+    background: rgba(41, 41, 64, 0.65);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid rgba(165, 163, 255, 0.1);
+  }
+
+  .glass-primary {
+    background: rgba(165, 163, 255, 0.15);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid rgba(165, 163, 255, 0.3);
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 rounded-xl font-semibold text-brand-bg transition-all duration-300;
+    background: linear-gradient(135deg, #a5a3ff, #7c7abf);
+    box-shadow: 0 4px 20px rgba(165, 163, 255, 0.35);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 30px rgba(165, 163, 255, 0.5);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #a5a3ff 0%, #e6e6e6 60%, #a5a3ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 cursor-pointer select-none;
+    color: rgba(230, 230, 230, 0.6);
+  }
+
+  .nav-item:hover {
+    color: var(--color-text);
+    background: rgba(165, 163, 255, 0.12);
+  }
+
+  .nav-item.active {
+    color: var(--color-primary);
+    background: rgba(165, 163, 255, 0.18);
+    box-shadow: 0 0 12px rgba(165, 163, 255, 0.15);
+  }
+}
+
+/* ─── Custom Scrollbar ───────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(165, 163, 255, 0.3);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(165, 163, 255, 0.55);
+}
+
+/* ─── Prose Styles for react-markdown ───────────────────────── */
+.ai-prose { @apply text-brand-text leading-relaxed; }
+.ai-prose p  { @apply mb-3; }
+.ai-prose ul { @apply list-disc list-inside mb-3 space-y-1; }
+.ai-prose ol { @apply list-decimal list-inside mb-3 space-y-1; }
+.ai-prose strong { @apply text-brand-primary font-semibold; }
+.ai-prose em { @apply text-brand-medium italic; }
+.ai-prose code {
+  @apply px-1.5 py-0.5 rounded-md text-sm font-mono;
+  background: rgba(165, 163, 255, 0.15);
+  color: #c4c2ff;
+}
+.ai-prose pre {
+  @apply p-4 rounded-xl text-sm font-mono mb-3 overflow-x-auto;
+  background: rgba(41, 41, 64, 0.8);
+  border: 1px solid rgba(165, 163, 255, 0.15);
+}
+.ai-prose pre code { background: none; padding: 0; }
+.ai-prose h1, .ai-prose h2, .ai-prose h3 {
+  @apply font-bold text-brand-primary mb-2 mt-4;
+}
+.ai-prose h1 { @apply text-xl; }
+.ai-prose h2 { @apply text-lg; }
+.ai-prose h3 { @apply text-base; }
+.ai-prose blockquote {
+  @apply border-l-2 border-brand-primary pl-4 italic text-brand-medium mb-3;
+}
+.ai-prose a { @apply text-brand-primary underline hover:text-brand-medium; }
+
+/* ─── Orb Animations ─────────────────────────────────────────── */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: float 8s ease-in-out infinite;
+  pointer-events: none;
+}
