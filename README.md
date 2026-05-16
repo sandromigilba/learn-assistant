@@ -1,73 +1,125 @@
-# React + TypeScript + Vite
+# LearnAI — AI-Powered Study Assistant
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Aplikasi web untuk belajar berbantuan AI dengan tiga mode: **Explain**, **Quiz**, dan **Summary** — didukung Google Gemini API.
 
-Currently, two official plugins are available:
+![Tech Stack](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Fitur
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Mode | Deskripsi |
+|---|---|
+| 📖 **Explain** | Penjelasan mendalam, berlapis, dengan analogi nyata |
+| 🎯 **Quiz** | AI bertanya, evaluasi jawaban, berikan feedback |
+| 📋 **Summary** | Ringkasan terstruktur dengan poin-poin utama |
 
-## Expanding the ESLint configuration
+- 💬 Chat interaktif dengan bubble User vs AI Tutor
+- 🌐 AI menjawab dalam bahasa yang sama dengan pengguna
+- 🎨 Desain Modern Glassmorphism (dark mode)
+- 📱 Responsive — bisa digunakan di mobile maupun desktop
+- ⚡ Hot reload dengan Vite
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Frontend:** React 19 + TypeScript
+- **Build Tool:** Vite 8
+- **Styling:** Tailwind CSS v3 + Custom Glassmorphism
+- **Icons:** Lucide React
+- **AI:** Google Gemini API (`gemini-2.5-flash-lite`)
+- **Markdown:** react-markdown + remark-gfm
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 🚀 Cara Menjalankan
+
+### 1. Clone repository
+
+```bash
+git clone https://github.com/sandromigilba/learn-assistant.git
+cd learn-assistant
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+### 3. Konfigurasi API Key
+
+```bash
+# Salin file contoh
+copy .env.example .env   # Windows
+cp .env.example .env     # Mac/Linux
+```
+
+Buka file `.env` dan isi dengan API key dari [Google AI Studio](https://aistudio.google.com/app/apikey):
+
+```env
+VITE_GEMINI_API_KEY=your_api_key_here
+```
+
+### 4. Jalankan aplikasi
+
+```bash
+npm run dev
+```
+
+Buka browser di **http://localhost:5173**
+
+---
+
+## 📁 Struktur Folder
+
+```
+src/
+├── components/
+│   ├── Sidebar.tsx          # Navigasi sidebar (collapsible)
+│   ├── LandingPage.tsx      # Halaman utama / hero
+│   ├── ChatWindow.tsx       # Area chat utama
+│   ├── ChatBubble.tsx       # Bubble pesan user & AI
+│   ├── ModeSelector.tsx     # Toggle Explain/Quiz/Summary
+│   └── TypingIndicator.tsx  # Animasi "AI sedang mengetik"
+├── constants/
+│   └── systemPrompts.ts     # System prompt per mode
+├── services/
+│   └── geminiService.ts     # Wrapper Gemini REST API
+├── types/
+│   └── index.ts             # TypeScript types
+├── App.tsx                  # Root komponen + state global
+└── index.css                # Tailwind + glassmorphism utilities
+```
+
+---
+
+## 🔑 Environment Variables
+
+| Variable | Wajib | Deskripsi |
+|---|---|---|
+| `VITE_GEMINI_API_KEY` | ✅ | API key dari Google AI Studio |
+| `VITE_GEMINI_MODEL` | ❌ | Override model (default: `gemini-2.5-flash-lite`) |
+
+> ⚠️ **JANGAN** commit file `.env` ke repository. File ini sudah di-ignore oleh `.gitignore`.
+
+---
+
+## 📝 Scripts
+
+```bash
+npm run dev      # Jalankan dev server
+npm run build    # Build untuk production
+npm run preview  # Preview hasil build
+npm run lint     # Cek kode dengan ESLint
+```
+
+---
+
+## 📄 Lisensi
+
+MIT License — bebas digunakan dan dimodifikasi.
