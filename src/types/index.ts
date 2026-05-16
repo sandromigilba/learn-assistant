@@ -11,11 +11,9 @@ export interface Message {
   timestamp: Date;
 }
 
-export interface GeminiPart {
-  text: string;
-}
+// ─── Groq / OpenAI-compatible API types ────────────────────────
 
-export interface GeminiContent {
-  role: 'user' | 'model';
-  parts: GeminiPart[];
+export interface GroqMessage {
+  role: 'system' | 'user' | 'assistant';
+  content: string;
 }
