@@ -98,17 +98,6 @@ src/
 
 ---
 
-## 🔑 Environment Variables
-
-| Variable | Wajib | Deskripsi |
-|---|---|---|
-| `VITE_GEMINI_API_KEY` | ✅ | API key dari Google AI Studio |
-| `VITE_GEMINI_MODEL` | ❌ | Override model (default: `gemini-2.5-flash-lite`) |
-
-> ⚠️ **JANGAN** commit file `.env` ke repository. File ini sudah di-ignore oleh `.gitignore`.
-
----
-
 ## 📝 Scripts
 
 ```bash
